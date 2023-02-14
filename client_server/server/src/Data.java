@@ -1,8 +1,9 @@
 import java.io.IOException;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface Data {
+public interface Data extends Remote {
     List<Student> getAllStudentData() throws RemoteException, MyException.NullDataException;
     List<Course> getAllCourseData() throws RemoteException, MyException.NullDataException;
     List<Register> getRegisterData() throws RemoteException;

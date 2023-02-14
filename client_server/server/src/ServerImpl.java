@@ -10,18 +10,17 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class ServerImpl extends UnicastRemoteObject implements Server{
+public class ServerImpl extends UnicastRemoteObject implements Server {
 
     public static void main(String[] args) {
         try {
-            ServerImpl server = new ServerImpl();
-            Naming.bind("Server", server);
+            Server server = new ServerImpl();
+            Naming.rebind("Server", server);
             System.out.println("Server is ready!!!");
 
             data = (Data) Naming.lookup("Data");
 
-        } catch (RemoteException | MalformedURLException |
-                 AlreadyBoundException | NotBoundException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -1,7 +1,8 @@
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.List;
 
-public interface Server {
+public interface Server extends Remote {
     List<Student> getAllStudentData() throws RemoteException, MyException.NullDataException;
     List<Course> getAllCourseData() throws RemoteException, MyException.NullDataException;
     String getRegisterData(String studentId) throws RemoteException, MyException;
