@@ -123,10 +123,10 @@ public class ServerImpl extends UnicastRemoteObject implements Server{
     private boolean checkId(int count, String id, List<?> dataList) {
         if(count == dataList.size()) return false;
         Object o = dataList.get(count);
-        if(o instanceof Student s) {
-            if(s.match(id)) return true;
-        } else if(o instanceof Course c) {
-            if(c.match(id)) return true;
+        if(o instanceof Student) {
+            if(((Student) o).match(id)) return true;
+        } else if(o instanceof Course) {
+            if(((Course) o).match(id)) return true;
         }
         return checkId(count+1, id, dataList);
     }
