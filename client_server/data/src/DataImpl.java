@@ -1,6 +1,4 @@
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.rmi.AlreadyBoundException;
 import java.rmi.Naming;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -32,13 +30,13 @@ public class DataImpl extends UnicastRemoteObject implements Data {
         isCourseChanged = false;
         isRegisterChanged = false;
 
-//        try {
-//            studentList= new StudentList("resource/Students.txt");
-//            courseList= new CourseList("resource/Courses.txt");
-//            registerList= new RegisterList("resource/Register.txt");
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            studentList= new StudentList("resource/Students.txt");
+            courseList= new CourseList("resource/Courses.txt");
+            registerList= new RegisterList("resource/Register.txt");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
         Runtime.getRuntime().addShutdownHook(
                 new Thread(() -> {
